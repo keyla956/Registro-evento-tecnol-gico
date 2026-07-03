@@ -22,24 +22,12 @@ formulario.addEventListener("submit", async function (e) {
 
     e.preventDefault();
 
-    // Limpiar mensajes anteriores
     mensaje.textContent = "";
     tarjetaExito.style.display = "none";
 
-    // Animación de confeti
-confetti({
-    particleCount: 180,
-    spread: 100,
-    origin: {
-        y: 0.6
-    }
-});
-
-    // Desactivar botón mientras se registra
     boton.disabled = true;
     boton.textContent = "⏳ Registrando...";
 
-    // Obtener datos del formulario
     const datos = {
 
         nombre: document.getElementById("nombre").value.trim(),
@@ -54,45 +42,64 @@ confetti({
 
     try {
 
-        // Enviar datos a Google Apps Script
         const respuesta = await fetch(URL_SCRIPT, {
-
             method: "POST",
-
+            redirect: "follow",
             body: JSON.stringify(datos)
-
         });
 
-        const resultado = await respuesta.json();
+        console.log("Status:", respuesta.status);
+        console.log("OK:", respuesta.ok);
+
+        const texto = await respuesta.text();
+
+        console.log("Respuesta del servidor:");
+        console.log(texto);
+
+        let resultado;
+
+        try {
+
+            resultado = JSON.parse(texto);
+
+        } catch {
+
+            throw new Error("La respuesta del servidor no es un JSON válido.\n\nRespuesta recibida:\n" + texto);
+
+        }
 
         // Mostrar folio
         folioGenerado.textContent = resultado.folio;
 
-        // Mostrar tarjeta de éxito
+        // Mostrar tarjeta
         tarjetaExito.style.display = "block";
 
-        // Limpiar formulario
+        // Confeti SOLO cuando todo salió bien
+        confetti({
+            particleCount: 180,
+            spread: 100,
+            origin: {
+                y: 0.6
+            }
+        });
+
         formulario.reset();
 
-        // Ir hacia la tarjeta
         tarjetaExito.scrollIntoView({
             behavior: "smooth"
         });
 
-    }
+    } catch (error) {
 
-    catch (error) {
+        console.error("ERROR COMPLETO:", error);
 
-        console.error(error);
+        alert(error.message);
 
         mensaje.style.color = "red";
         mensaje.textContent = "❌ Ocurrió un error al registrar la información.";
 
-    }
+    } finally {
 
-    finally {
-
-        // Activar nuevamente el botón
         boton.disabled = false;
         boton.textContent = "Registrarme";
 
