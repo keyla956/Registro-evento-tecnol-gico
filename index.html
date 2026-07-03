@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Evento Tecnológico</title>
+
+    <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+
+<div class="contenedor">
+
+    <h1>Congreso Internacional de Innovación Tecnológica 2026</h1>
+
+    <p class="subtitulo">
+        Complete el siguiente formulario para registrarse al evento.
+    </p>
+
+    <form id="formRegistro">
+
+        <label>Nombre completo</label>
+        <input id="nombre" type="text" placeholder="Escriba su nombre completo">
+
+        <label>Correo electrónico</label>
+        <input id="correo" type="email" placeholder="ejemplo@gmail.com">
+
+        <label>Teléfono</label>
+        <input id="telefono" type="text" placeholder="6141234567">
+
+        <label>Ciudad</label>
+        <input id="ciudad" type="text">
+
+        <label>Empresa o Institución</label>
+        <input id="empresa" type="text">
+
+        <label>Tipo de boleto</label>
+
+        <select id="boleto">
+
+            <option value="">Seleccione</option>
+            <option>General</option>
+            <option>VIP</option>
+
+        </select>
+
+        <label>Taller de interés</label>
+
+        <input id="taller" type="text">
+
+        <button type="submit">
+
+            Registrarme
+
+        </button>
+
+    </form>
+
+</div>
+
+<script type="module" src="app.js"></script>
+
+</body>
+
+</html>
