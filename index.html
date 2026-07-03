@@ -2,65 +2,214 @@
 <html lang="es">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Evento Tecnológico</title>
+
+    <title>Congreso Internacional de Innovación Tecnológica 2026</title>
 
     <link rel="stylesheet" href="estilos.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 </head>
 
 <body>
 
 <div class="contenedor">
 
-    <h1>Congreso Internacional de Innovación Tecnológica 2026</h1>
+    <!-- ===========================
+         ENCABEZADO
+    ============================ -->
 
-    <p class="subtitulo">
-        Complete el siguiente formulario para registrarse al evento.
-    </p>
+    <div class="encabezado">
+
+        <h1>Congreso Internacional de Innovación Tecnológica 2026</h1>
+
+        <p class="subtitulo">
+            Sistema Oficial de Registro de Participantes
+        </p>
+
+        <div class="infoEvento">
+
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Universidad Tecnológica de Parral
+            </span>
+
+            <span>
+                <i class="fa-solid fa-calendar-days"></i>
+                15 de Octubre de 2026
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- ===========================
+         FORMULARIO
+    ============================ -->
 
     <form id="formRegistro">
 
-        <label>Nombre completo</label>
-        <input id="nombre" type="text" placeholder="Escriba su nombre completo">
+        <div class="grupo">
 
-        <label>Correo electrónico</label>
-        <input id="correo" type="email" placeholder="ejemplo@gmail.com">
+            <label for="nombre">
+                <i class="fa-solid fa-user"></i>
+                Nombre completo
+            </label>
 
-        <label>Teléfono</label>
-        <input id="telefono" type="text" placeholder="6141234567">
+            <input
+                type="text"
+                id="nombre"
+                required
+                placeholder="Escriba su nombre completo">
 
-        <label>Ciudad</label>
-        <input id="ciudad" type="text">
+        </div>
 
-        <label>Empresa o Institución</label>
-        <input id="empresa" type="text">
+        <div class="grupo">
 
-        <label>Tipo de boleto</label>
+            <label for="correo">
+                <i class="fa-solid fa-envelope"></i>
+                Correo electrónico
+            </label>
 
-        <select id="boleto">
+            <input
+                type="email"
+                id="correo"
+                required
+                placeholder="ejemplo@gmail.com">
 
-            <option value="">Seleccione</option>
-            <option>General</option>
-            <option>VIP</option>
+        </div>
 
-        </select>
+        <div class="grupo">
 
-        <label>Taller de interés</label>
+            <label for="telefono">
+                <i class="fa-solid fa-phone"></i>
+                Teléfono
+            </label>
 
-        <input id="taller" type="text">
+            <input
+                type="tel"
+                id="telefono"
+                required
+                maxlength="10"
+                placeholder="6141234567">
+
+        </div>
+
+        <div class="grupo">
+
+            <label for="ciudad">
+                <i class="fa-solid fa-city"></i>
+                Ciudad
+            </label>
+
+            <input
+                type="text"
+                id="ciudad"
+                required
+                placeholder="Ingrese su ciudad">
+
+        </div>
+
+        <div class="grupo">
+
+            <label for="empresa">
+                <i class="fa-solid fa-building"></i>
+                Empresa o Institución
+            </label>
+
+            <input
+                type="text"
+                id="empresa"
+                required
+                placeholder="Nombre de la empresa o institución">
+
+        </div>
+
+        <div class="grupo">
+
+            <label for="boleto">
+                <i class="fa-solid fa-ticket"></i>
+                Tipo de boleto
+            </label>
+
+            <select id="boleto" required>
+
+                <option value="">Seleccione</option>
+                <option>General</option>
+                <option>VIP</option>
+
+            </select>
+
+        </div>
+
+        <div class="grupo">
+
+            <label for="taller">
+                <i class="fa-solid fa-laptop-code"></i>
+                Taller de interés
+            </label>
+
+            <input
+                type="text"
+                id="taller"
+                required
+                placeholder="Ej. Inteligencia Artificial">
+
+        </div>
 
         <button type="submit">
-
             Registrarme
-
         </button>
 
     </form>
 
+    <!-- ===========================
+         MENSAJES
+    ============================ -->
+
+    <p id="mensaje" class="mensaje"></p>
+
+    <!-- ===========================
+         TARJETA DE ÉXITO
+    ============================ -->
+
+    <div id="tarjetaExito" class="tarjeta-exito">
+
+        <h2>
+            <i class="fa-solid fa-circle-check"></i>
+            Registro Exitoso
+        </h2>
+
+        <p>
+            Tu registro fue realizado correctamente.
+        </p>
+
+        <p>
+            <strong>Folio:</strong>
+            <span id="folioGenerado"></span>
+        </p>
+
+        <p>
+            <i class="fa-solid fa-envelope-circle-check"></i>
+            Se envió un correo de confirmación.
+        </p>
+
+        <p>
+            ¡Te esperamos en el evento!
+        </p>
+
+    </div>
+
 </div>
 
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 
 </body>
 
