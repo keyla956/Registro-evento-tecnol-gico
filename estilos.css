@@ -1,0 +1,318 @@
+/* ==========================================
+   CONFIGURACIÓN GENERAL
+========================================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+
+    background:linear-gradient(135deg,#0f172a,#1e3a8a,#4f46e5);
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:40px;
+
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL
+========================================== */
+
+.contenedor{
+
+    width:100%;
+    max-width:700px;
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+}
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.encabezado{
+
+    background:linear-gradient(135deg,#1e3a8a,#4f46e5);
+
+    color:white;
+
+    padding:35px;
+
+    text-align:center;
+
+}
+
+.encabezado h1{
+
+    font-size:30px;
+
+    margin-bottom:12px;
+
+}
+
+.subtitulo{
+
+    font-size:17px;
+
+    opacity:.95;
+
+}
+
+.infoEvento{
+
+    margin-top:25px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    font-size:15px;
+
+}
+
+/* ==========================================
+   FORMULARIO
+========================================== */
+
+form{
+
+    padding:35px;
+
+}
+
+.grupo{
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#1e293b;
+
+}
+
+input,
+select{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:10px;
+
+    border:1px solid #cbd5e1;
+
+    font-size:15px;
+
+    transition:.30s;
+
+}
+
+input:focus,
+select:focus{
+
+    outline:none;
+
+    border:1px solid #4f46e5;
+
+    box-shadow:0 0 10px rgba(79,70,229,.25);
+
+}
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+button{
+
+    width:100%;
+
+    margin-top:15px;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#2563eb,#4f46e5);
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 12px 25px rgba(79,70,229,.35);
+
+}
+
+button:disabled{
+
+    opacity:.75;
+
+    cursor:not-allowed;
+
+}
+
+/* ==========================================
+   MENSAJES
+========================================== */
+
+.mensaje{
+
+    padding:0 35px;
+
+    margin-bottom:20px;
+
+    text-align:center;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+   TARJETA DE ÉXITO
+========================================== */
+
+.tarjeta-exito{
+
+    display:none;
+
+    margin:0 35px 35px;
+
+    background:#ecfdf5;
+
+    border:2px solid #22c55e;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    text-align:center;
+
+    animation:aparecer .5s;
+
+}
+
+.tarjeta-exito h2{
+
+    color:#15803d;
+
+    margin-bottom:15px;
+
+}
+
+.tarjeta-exito p{
+
+    margin:10px 0;
+
+    color:#334155;
+
+}
+
+#folioGenerado{
+
+    font-size:20px;
+
+    color:#1e3a8a;
+
+    font-weight:bold;
+
+}
+
+/* ==========================================
+   ANIMACIÓN
+========================================== */
+
+@keyframes aparecer{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:768px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .encabezado{
+
+        padding:25px;
+
+    }
+
+    .encabezado h1{
+
+        font-size:23px;
+
+    }
+
+    form{
+
+        padding:25px;
+
+    }
+
+}
